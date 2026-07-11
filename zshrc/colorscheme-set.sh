@@ -466,7 +466,9 @@ if [ "$UPDATED" = true ]; then
   fi
 
   if [ "$wallpaper" != "$last_wallpaper" ]; then
-    set_wallpaper_all_spaces_yabai "$wallpaper"
+    if [[ "$wallpaper" != *"/Backdrop"* && ! "$wallpaper" =~ \.(mov|mp4)$ ]]; then
+      set_wallpaper_all_spaces_yabai "$wallpaper"
+    fi
     printf '%s' "$wallpaper" >"$wallpaper_cache"
   fi
 

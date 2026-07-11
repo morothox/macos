@@ -98,3 +98,7 @@ neovim/neobean-sticky/lua/plugins/core.lua
 neovim/lazyvim/lazyvim.json
 neovim/neobean/lua/.DS_Store
 kitty/sessions/daily.kitty-session
+
+# Backdrop sync generated files
+scripts/extract_frame
+colorscheme/list/backdrop-sync.sh
