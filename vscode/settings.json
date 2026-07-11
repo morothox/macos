@@ -186,5 +186,10 @@
     }
   ],
   "git.autofetch": true,
-  "workbench.colorTheme": "Linkarzu Dark Eldritch"
+  "workbench.colorTheme": "Linkarzu Dark Eldritch",
+  "terminal.integrated.commandsToSkipShell": [
+    "kilo-code.new.agentManagerOpen",
+    "kilo-code.new.agentManager.showTerminal",
+    "kilo-code.new.agentManager.runScript"
+  ]
 }
