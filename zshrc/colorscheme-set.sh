@@ -434,10 +434,12 @@ if [ "$UPDATED" = true ]; then
   # Source the active colorscheme to load variables
   source "$active_file"
 
-  # # Set the tmux colors
-  # $HOME/github/dotfiles-latest/tmux/tools/linkarzu/set_tmux_colors.sh
-  # tmux source-file ~/.tmux.conf
-  # echo "Tmux colors set and tmux configuration reloaded."
+  # Set the tmux colors
+  if [ -n "$TMUX" ] || pgrep tmux >/dev/null 2>&1; then
+    $HOME/github/dotfiles-latest/tmux/tools/linkarzu/set_tmux_colors.sh
+    tmux source-file ~/.tmux.conf 2>/dev/null || true
+    echo "Tmux colors set and tmux configuration reloaded."
+  fi
 
   # Set sketchybar colors
   sketchybar --reload
@@ -453,7 +455,7 @@ if [ "$UPDATED" = true ]; then
   # Generate the Kitty configuration file
   generate_kitty_config
   # This reloads kitty config without closing and re-opening
-  # kill -SIGUSR1 "$(pgrep -x kitty)"
+  pkill -USR1 -x kitty 2>/dev/null || true
 
   # Set the wallpaper
   if [ -z "$wallpaper" ]; then
@@ -473,5 +475,5 @@ if [ "$UPDATED" = true ]; then
   fi
 
   # Also restart yabai for my skitty-notes colors
-  ~/github/dotfiles-latest/yabai/yabai_restart.sh
+  ~/github/dotfiles-latest/yabai/yabai_restart.sh || true
 fi
