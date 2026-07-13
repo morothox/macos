@@ -192,6 +192,7 @@ bind - split-window -v
 # Switch to windows 1 through 4
 # 'p' is normally used to go to the previous window, but I won't use it
 # ctrl+b c -> new window
+bind c new-window
 # ctrl+b , -> rename current window
 # ctrl+b w -> show list of windows and sessions
 unbind p
@@ -336,8 +337,8 @@ bind r source-file ~/.tmux.conf
 # bind r source-file ~/.tmux.conf \; display-message -d 2000 "Configuration reloaded!"
 
 # Bind pane synchronization to Ctrl-b s
-unbind Q
-bind Q setw synchronize-panes
+# unbind Q
+# bind Q setw synchronize-panes
 
 # Go to previous window, I'm using 'p' to change to window 4
 unbind m
@@ -349,10 +350,10 @@ bind -r M resize-pane -Z
 
 # The number at the end specifies number of cells
 # Increase or decrease to your liking
-bind -r Left resize-pane -L 1
+bind -r Left previous-window
 bind -r Down resize-pane -D 1
 bind -r Up resize-pane -U 1
-bind -r Right resize-pane -R 1
+bind -r Right next-window
 
 # Change the keybinding to enter copy mode from 'prefix + [' to 'prefix + v'
 unbind v
