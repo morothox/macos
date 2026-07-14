@@ -1,6 +1,9 @@
 -- Filename: ~/github/dotfiles-latest/neovim/neobean/init.lua
 -- ~/github/dotfiles-latest/neovim/neobean/init.lua
 
+-- Enable AI completion integration
+vim.g.ai_cmp = true
+
 -- We're passing an env var from kitty, you can print it with:
 -- :lua print(vim.env.NEOVIM_MODE)
 -- Here we capture the environment variable to make it accessible to neovim

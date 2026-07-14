@@ -216,6 +216,7 @@ vec3 CrtsFilter(
 
   // Inital UV position
   vec2 p = vec2(x0 * rcpInputSize.x, y0 * rcpInputSize.y);
+
   // Fetch 4 nearest texels from 2 nearest scanlines
   vec3 colA0 = CrtsFetch(p);
   p.x += rcpInputSize.x;

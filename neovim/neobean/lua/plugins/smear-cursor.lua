@@ -1,0 +1,14 @@
+-- Filename: ~/github/dotfiles-latest/neovim/neobean/lua/plugins/smear-cursor.lua
+-- https://github.com/sphamba/smear-cursor.nvim
+
+return {
+  "sphamba/smear-cursor.nvim",
+  cond = function()
+    return not vim.g.neovide
+  end,
+  opts = {
+    -- Elegant, smooth cursor transitions
+    stiffness = 0.6,
+    relaxation_factor = 0.75,
+  },
+}

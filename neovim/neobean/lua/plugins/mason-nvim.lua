@@ -23,18 +23,25 @@ return {
 
       "harper-ls",
       "prettier",
-
-      -- Not installing the tree-sitter CLI through mason due do this
-      -- https://github.com/LazyVim/LazyVim/issues/6437#issuecomment-3304278107
-      -- "tree-sitter-cli",
-      -- marksman and markdownlint come by default in the lazyvim config
-      --
-      -- I installed markdown-toc as I use to to automatically create and upate
-      -- the TOC at the top of each file
-      -- vim.list_extend(opts.ensure_installed, { "markdownlint-cli2", "marksman", "markdown-toc" })
-
-      -- https://github.com/Feel-ix-343/markdown-oxide
       "markdown-oxide",
+
+      -- Language Servers (LSPs)
+      "gopls",
+      "pyright",
+      "vtsls",
+      "yaml-language-server",
+      "json-lsp",
+      "dockerfile-language-server",
+      "terraform-ls",
+      "helm-ls",
+      "tinymist",
+
+      -- Linters & Formatters
+      "hadolint",
+
+      -- Debuggers (DAP)
+      "delve",
+      "codelldb",
     })
   end,
 }

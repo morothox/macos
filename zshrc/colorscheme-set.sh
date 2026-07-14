@@ -430,6 +430,7 @@ if [ "$UPDATED" = true ]; then
   # I want to copy the colorscheme_file to my neobean config for folks that
   # don't use my colorscheme selector
   cp "$colorscheme_file" "$HOME/github/dotfiles-latest/neovim/neobean/lua/config/active-colorscheme.sh"
+  cp "$colorscheme_file" "$HOME/github/dotfiles-latest/neovim/lazyvim/lua/config/active-colorscheme.sh"
 
   # Source the active colorscheme to load variables
   source "$active_file"
