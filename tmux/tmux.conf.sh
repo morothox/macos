@@ -10,7 +10,9 @@ source "$HOME/github/dotfiles-latest/colorscheme/active/active-colorscheme.sh"
 # #############################################################################
 
 # Tmux prefix key
-set -g prefix C-b
+set -g prefix C-s
+unbind C-b
+bind C-s send-prefix
 
 # "xterm-256color" in alacritty and "screen-256color" in tmux doesnt have paste issues in neovim
 # "checkhealth" command in neovim shows no color warnings
@@ -279,16 +281,16 @@ unbind C-p
 bind-key -r C-p run-shell "$tmux_sessionizer ~/github/scripts"
 unbind C-t
 bind-key -r C-t run-shell "$tmux_sessionizer ~/github/obsidian_main"
-unbind 4
-bind-key -r 4 run-shell "$tmux_sessionizer ~/github/containerdata"
+# unbind 4
+# bind-key -r 4 run-shell "$tmux_sessionizer ~/github/containerdata"
 unbind C-y
 bind-key -r C-y run-shell "$tmux_sessionizer /System/Volumes/Data/mnt/containerdata_nfs"
 unbind C-h
 bind-key -r C-h run-shell "$tmux_sessionizer ~"
 unbind C-m
 bind-key -r C-m run-shell "$tmux_sessionizer ~/github/containerdata-public"
-unbind 3
-bind-key -r 3 run-shell "$tmux_sessionizer ~/github/go"
+# unbind 3
+# bind-key -r 3 run-shell "$tmux_sessionizer ~/github/go"
 # Leaving this in quotes because iCloud dir has a white space
 unbind C-g
 bind-key -r C-g run-shell "$tmux_sessionizer ~/github/php"
@@ -311,23 +313,23 @@ bind-key -r C-c run-shell "$tmux_sshonizer_agen xocli3"
 
 unbind f
 bind-key -r f run-shell "tmux neww $tmux_sessionizer"
-unbind 5
-# Notice I'm passing 2 arguments, it's going to fzf inside that 2nd argument
-bind-key -r 5 run-shell "tmux neww $tmux_sessionizer irrelevant-arg ~/github/goto"
+# unbind 5
+# # Notice I'm passing 2 arguments, it's going to fzf inside that 2nd argument
+# bind-key -r 5 run-shell "tmux neww $tmux_sessionizer irrelevant-arg ~/github/goto"
 unbind C-v
 bind-key -r C-v run-shell "tmux neww $ssh_select"
 unbind C-n
 bind-key -r C-n run-shell "tmux neww $ssh_config_select"
-unbind 1
-bind-key -r 1 run-shell "tmux neww $daily_note"
-unbind 2
-bind-key -r 2 run-shell "tmux neww $karabiner_rules"
-unbind 6
-bind-key -r 6 run-shell "tmux neww $colorscheme_selector"
-unbind 7
-bind-key -r 7 run-shell "tmux neww $script_selector"
-unbind 8
-bind-key -r 8 run-shell "$tmux_sessionizer ~/github/dotfiles-private"
+# unbind 1
+# bind-key -r 1 run-shell "tmux neww $daily_note"
+# unbind 2
+# bind-key -r 2 run-shell "tmux neww $karabiner_rules"
+# unbind 6
+# bind-key -r 6 run-shell "tmux neww $colorscheme_selector"
+# unbind 7
+# bind-key -r 7 run-shell "tmux neww $script_selector"
+# unbind 8
+# bind-key -r 8 run-shell "$tmux_sessionizer ~/github/dotfiles-private"
 
 ###############################################################################
 
@@ -383,7 +385,7 @@ bind-key -T copy-mode-extended 'l' send -X end-of-line \; switch-client -T copy-
 # bind-key -T copy-mode-vi 'L' send -X end-of-line
 
 # don't exit copy mode when dragging with mouse
-unbind -T copy-mode-vi MouseDragEnd1Pane
+# unbind -T copy-mode-vi MouseDragEnd1Pane
 
 # Bind Alt-t <M-t> in copy-mode
 # This allows me to toggle my neovim terminal even if I'm in tmux copy-mode

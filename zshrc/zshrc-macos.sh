@@ -521,7 +521,8 @@ fi
 if command -v zoxide &>/dev/null; then
   eval "$(zoxide init zsh)"
 
-  alias cd='z'
+  # Commented out to keep normal cd functionality as requested
+  # alias cd='z'
   # Alias below is same as 'cd -', takes to the previous directory
   alias cdd='z -'
 

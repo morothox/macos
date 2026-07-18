@@ -191,5 +191,6 @@
     "kilo-code.new.agentManagerOpen",
     "kilo-code.new.agentManager.showTerminal",
     "kilo-code.new.agentManager.runScript"
-  ]
+  ],
+  "claudeCode.preferredLocation": "panel"
 }
