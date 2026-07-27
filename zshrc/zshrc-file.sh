@@ -40,7 +40,3 @@ alias neobean='NVIM_APPNAME=linkarzu/dotfiles-latest/neovim/neobean nvim'
 
 # Added by Antigravity CLI installer
 export PATH="/Users/morothox/.local/bin:$PATH"
-
-# Claude Code API credentials
-export ANTHROPIC_API_KEY="sk-pCpxDlVNFJdBRhcWuvsQz8Qmzmmmxxq2RagWa7c861LMsgxq"
-export ANTHROPIC_BASE_URL="https://yunwu.ai"
