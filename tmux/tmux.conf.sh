@@ -366,10 +366,12 @@ bind-key -T copy-mode-vi 'Escape' send -X cancel
 
 # start selecting text with "v", this is visual mode
 bind-key -T copy-mode-vi 'v' send -X begin-selection
-# copy text with "y"
-bind-key -T copy-mode-vi 'y' send -X copy-selection
+# copy text manually with "y" to system clipboard (pbcopy)
+bind-key -T copy-mode-vi 'y' send-keys -X copy-pipe-and-cancel "pbcopy"
+# automatically copy selected text to system clipboard when mouse drag ends
+bind-key -T copy-mode-vi MouseDragEnd1Pane send-keys -X copy-pipe-and-cancel "pbcopy"
 
-# Thi is what allows me to press gh and gl to to to the beginning and end of
+# This is what allows me to press gh and gl to go to the beginning and end of
 # line respectively when in copy-mode (visual mode)
 # Unbind the default 'g' key in copy-mode-vi
 unbind -T copy-mode-vi g
@@ -379,13 +381,6 @@ bind-key -T copy-mode-vi 'g' switch-client -T copy-mode-extended
 bind-key -T copy-mode-extended 'h' send -X start-of-line \; switch-client -T copy-mode-vi
 # Bind 'l' in the extended copy-mode to go to the end of the line
 bind-key -T copy-mode-extended 'l' send -X end-of-line \; switch-client -T copy-mode-vi
-
-# Nope, disabled this as I use them for telescope buffers and snipe
-# bind-key -T copy-mode-vi 'H' send -X start-of-line
-# bind-key -T copy-mode-vi 'L' send -X end-of-line
-
-# don't exit copy mode when dragging with mouse
-# unbind -T copy-mode-vi MouseDragEnd1Pane
 
 # Bind Alt-t <M-t> in copy-mode
 # This allows me to toggle my neovim terminal even if I'm in tmux copy-mode
