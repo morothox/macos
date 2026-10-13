@@ -40,3 +40,11 @@ alias neobean='NVIM_APPNAME=linkarzu/dotfiles-latest/neovim/neobean nvim'
 
 # Added by Antigravity CLI installer
 export PATH="/Users/morothox/.local/bin:$PATH"
+
+# Load secret environment variables if file exists
+[ -f ~/github/dotfiles-latest/zshrc/zshrc-secrets.sh ] && source ~/github/dotfiles-latest/zshrc/zshrc-secrets.sh
+
+
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/morothox/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/morothox/google-cloud-sdk/path.zsh.inc'; fi

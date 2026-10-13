@@ -84,6 +84,10 @@ create_symlink ~/github/dotfiles-latest/.prettierrc.yaml ~/.prettierrc.yaml
 create_symlink ~/github/dotfiles-latest/ubersicht/.simplebarrc ~/.simplebarrc
 create_symlink ~/github/dotfiles-latest/eligere/.eligere.json ~/.eligere.json
 create_symlink ~/github/dotfiles-latest/eligere/eligere.toml ~/.config/eligere/.eligere.toml
+if [ -d "/Applications/Visual Studio Code.app/Contents/Resources/app/bin" ]; then
+  mkdir -p "$HOME/.local/bin"
+  create_symlink "/Applications/Visual Studio Code.app/Contents/Resources/app/bin/code" "$HOME/.local/bin/code"
+fi
 if command -v code &>/dev/null; then
   create_symlink ~/github/dotfiles-latest/vscode/settings.json "$HOME/Library/Application Support/Code/User/settings.json"
 fi

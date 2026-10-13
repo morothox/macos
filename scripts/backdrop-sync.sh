@@ -19,7 +19,7 @@ get_wallpaper_path() {
     pid=$(pgrep -x BackdropWallpaper | head -n 1)
     if [ -n "$pid" ]; then
         local path
-        path=$(lsof -p "$pid" | grep -i -E '\.(mov|mp4|heic|png|jpg|jpeg|webp)$' | awk '{print $NF}' | head -n 1)
+        path=$(lsof -Fn -p "$pid" | sed -n 's/^n//p' | grep -i -E '\.(mov|mp4|heic|png|jpg|jpeg|webp)$' | head -n 1)
         if [ -n "$path" ] && [ -f "$path" ]; then
             echo "$path"
             return 0
@@ -30,7 +30,7 @@ get_wallpaper_path() {
     pid=$(pgrep -x Backdrop | head -n 1)
     if [ -n "$pid" ]; then
         local path
-        path=$(lsof -p "$pid" | grep -i -E '\.(mov|mp4|heic|png|jpg|jpeg|webp)$' | awk '{print $NF}' | head -n 1)
+        path=$(lsof -Fn -p "$pid" | sed -n 's/^n//p' | grep -i -E '\.(mov|mp4|heic|png|jpg|jpeg|webp)$' | head -n 1)
         if [ -n "$path" ] && [ -f "$path" ]; then
             echo "$path"
             return 0

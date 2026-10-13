@@ -1,0 +1,214 @@
+# Filename: ~/github/dotfiles-latest/herdr/config.toml
+# Symlink: ~/.config/herdr/config.toml -> dieses File
+# Neu laden: prefix+r oder `herdr server reload-config`; prüfen: `herdr config check`
+# Alle Optionen: `herdr --default-config`, https://herdr.dev/docs/config-reference/
+# Plugins installieren: ~/github/dotfiles-latest/herdr/install-plugins.sh
+
+onboarding = false
+
+# UI/Theme: bewusst herdr-Standard (kein [theme]/[ui]-Override)
+
+[terminal]
+new_cwd = "follow"
+
+# #############################################################################
+# Keys – so nah wie möglich an tmux/tmux.conf.sh
+# #############################################################################
+[keys]
+# tmux: set -g prefix C-s
+prefix = "ctrl+s"
+
+reload_config = "prefix+r"        # tmux: r source-file
+resize_mode = "prefix+shift+r"
+detach = "prefix+d"               # tmux default
+close_workspace = "prefix+shift+d"
+workspace_picker = "prefix+s"     # tmux: s choose-tree
+settings = "prefix+shift+comma"
+rename_tab = "prefix+comma"       # tmux: , rename-window
+split_vertical = "prefix+%"       # tmux-Standard: % split-window -h (nebeneinander)
+split_horizontal = 'prefix+"'     # tmux-Standard: " split-window -v (untereinander)
+copy_mode = "prefix+v"            # tmux: v copy-mode
+zoom = "prefix+shift+m"           # tmux: M resize-pane -Z
+previous_tab = "prefix+m"         # tmux: m previous-window
+next_tab = "prefix+n"
+last_pane = "prefix+semicolon"    # tmux default ;
+open_notification_target = "prefix+shift+o"
+# prefix+1..9 bleibt für Tabs; u/i/o/p siehe [[keys.command]] unten
+# Defaults, deren Taste oben/unten neu belegt ist (g=lazygit, e=sidebar)
+goto = "prefix+w"
+edit_scrollback = "prefix+shift+e"
+new_worktree = "prefix+alt+g"
+
+# --- Tabs 1–4 wie tmux u/i/o/p --------------------------------------------
+[[keys.command]]
+key = "prefix+u"
+type = "shell"
+command = "~/github/dotfiles-latest/herdr/scripts/focus-tab.sh 1"
+description = "tab 1"
+
+[[keys.command]]
+key = "prefix+i"
+type = "shell"
+command = "~/github/dotfiles-latest/herdr/scripts/focus-tab.sh 2"
+description = "tab 2"
+
+[[keys.command]]
+key = "prefix+o"
+type = "shell"
+command = "~/github/dotfiles-latest/herdr/scripts/focus-tab.sh 3"
+description = "tab 3"
+
+[[keys.command]]
+key = "prefix+p"
+type = "shell"
+command = "~/github/dotfiles-latest/herdr/scripts/focus-tab.sh 4"
+description = "tab 4"
+
+# --- Popups (tmux display-popup / neww) ------------------------------------
+[[keys.command]]
+key = "prefix+g"
+type = "popup"
+command = "lazygit"
+description = "lazygit"
+width = "90%"
+height = "90%"
+
+[[keys.command]]
+key = "prefix+y"
+type = "popup"
+command = "yazi"
+description = "yazi"
+width = "90%"
+height = "90%"
+
+[[keys.command]]
+key = "prefix+t"
+type = "popup"
+command = "exec \"${SHELL:-zsh}\""
+description = "scratch terminal"
+width = "80%"
+height = "80%"
+
+[[keys.command]]
+key = "prefix+alt+b"
+type = "popup"
+command = "btop"
+description = "btop"
+width = "90%"
+height = "90%"
+
+# tmux: C-u → sessionizer ~/github/dotfiles-latest
+[[keys.command]]
+key = "prefix+ctrl+u"
+type = "shell"
+command = "~/github/dotfiles-latest/herdr/scripts/open-workspace.sh ~/github/dotfiles-latest"
+description = "workspace: dotfiles"
+
+[[keys.command]]
+key = "prefix+ctrl+h"
+type = "shell"
+command = "~/github/dotfiles-latest/herdr/scripts/open-workspace.sh ~"
+description = "workspace: home"
+
+# --- Plugins ----------------------------------------------------------------
+# sesh (fullerzz.sesh) – tmux: T sesh-Picker, Space letzte Session
+[[keys.command]]
+key = "prefix+shift+t"
+type = "plugin_action"
+command = "fullerzz.sesh.open-picker"
+description = "sesh picker"
+
+[[keys.command]]
+key = "prefix+space"
+type = "plugin_action"
+command = "fullerzz.sesh.last"
+description = "previous workspace"
+
+[[keys.command]]
+key = "prefix+f"
+type = "plugin_action"
+command = "fullerzz.sesh.open-picker"
+description = "sesh picker (tmux f)"
+
+# herdr-resurrect – tmux-resurrect/continuum
+[[keys.command]]
+key = "prefix+alt+s"
+type = "plugin_action"
+command = "ntindle.herdr-resurrect.save"
+description = "resurrect: save"
+
+[[keys.command]]
+key = "prefix+ctrl+r"
+type = "plugin_action"
+command = "ntindle.herdr-resurrect.restore-preview"
+description = "resurrect: restore"
+
+[[keys.command]]
+key = "prefix+shift+s"
+type = "plugin_action"
+command = "ntindle.herdr-resurrect.save-space"
+description = "resurrect: save space as…"
+
+[[keys.command]]
+key = "prefix+alt+o"
+type = "plugin_action"
+command = "ntindle.herdr-resurrect.open-space"
+description = "resurrect: open saved space"
+
+# herdr-splits – vim-tmux-navigator: C-h/j/k/l ohne Prefix, auch durch nvim
+[[keys.command]]
+key = "ctrl+h"
+type = "plugin_action"
+command = "herdr-splits.nav-left"
+description = "navigate left"
+
+[[keys.command]]
+key = "ctrl+j"
+type = "plugin_action"
+command = "herdr-splits.nav-down"
+description = "navigate down"
+
+[[keys.command]]
+key = "ctrl+k"
+type = "plugin_action"
+command = "herdr-splits.nav-up"
+description = "navigate up"
+
+[[keys.command]]
+key = "ctrl+l"
+type = "plugin_action"
+command = "herdr-splits.nav-right"
+description = "navigate right"
+
+# herdr-sidebar – Dateibaum + Git (VS-Code-Style)
+[[keys.command]]
+key = "prefix+e"
+type = "plugin_action"
+command = "herdr-sidebar.open-sidebar"
+description = "file sidebar"
+
+[[keys.command]]
+key = "prefix+shift+g"
+type = "plugin_action"
+command = "herdr-sidebar.open-git"
+description = "git sidebar"
+
+[[keys.command]]
+key = "prefix+shift+f"
+type = "plugin_action"
+command = "herdr-sidebar.quick-open"
+description = "quick open file"
+
+# Command-Palette (fzf) über alle Plugin-Actions
+[[keys.command]]
+key = "prefix+shift+semicolon"
+type = "plugin_action"
+command = "jt.command-palette.open"
+description = "command palette"
+
+# Plugin-Manager (wie TPM prefix+I)
+[[keys.command]]
+key = "prefix+shift+i"
+type = "plugin_action"
+command = "ray.plugin-manager.open"
+description = "plugin manager"

@@ -10,5 +10,13 @@ return {
     -- Elegant, smooth cursor transitions
     stiffness = 0.6,
     relaxation_factor = 0.75,
+    -- Deaktiviere smear-cursor in Orgmode und temporären Fenstern, um Crash bei BufWipeout / confirm() zu verhindern
+    filetypes_disabled = {
+      "org",
+      "orgagenda",
+      "org_capture",
+      "noice",
+      "notify",
+    },
   },
 }

@@ -102,3 +102,7 @@ kitty/sessions/daily.kitty-session
 # Backdrop sync generated files
 scripts/extract_frame
 colorscheme/list/backdrop-sync.sh
+
+# Local secrets
+zshrc/zshrc-secrets.sh
+

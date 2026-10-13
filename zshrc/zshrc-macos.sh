@@ -249,6 +249,11 @@ export PATH="$JAVA_HOME/bin:$PATH"
 # file
 export PATH="$PATH:/Users/linkarzu/.lmstudio/bin"
 
+# Visual Studio Code CLI
+if [ -d "/Applications/Visual Studio Code.app/Contents/Resources/app/bin" ]; then
+  export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+fi
+
 # You can use NVIM_APPNAME=nvim-NAME to maintain multiple configurations.
 #
 # NVIM_APPNAME is the name of the directory inside ~/.config

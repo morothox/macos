@@ -19,6 +19,9 @@ require("config.lazy")
 -- Load custom highlights
 require("config.highlights")
 
+
+-- LaTeX-Fragmente in Org-Dateien als Bild rendern (<leader>uL)
+require("config.latex").setup()
 -- Delay for `skitty` configuration
 if vim.g.neovim_mode == "skitty" then
   vim.wait(500, function()

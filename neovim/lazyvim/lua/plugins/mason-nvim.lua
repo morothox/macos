@@ -5,7 +5,7 @@ return {
   "mason-org/mason.nvim",
   opts = function(_, opts)
     vim.list_extend(opts.ensure_installed, {
-      "harper-ls",
+      -- "harper-ls",  -- deaktiviert: lilane Syntax-Errors
       "prettier",
       "markdown-oxide",
 
